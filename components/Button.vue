@@ -6,6 +6,10 @@
 
 <script>
 export default {
-    props: ["click"]
+    methods: {
+        click() {
+            this.$emit('click')
+        }
+    }
 }
 </script>

@@ -5,7 +5,7 @@
     <header class="absolute top-0 left-0 right-0 z-20 w-100 bg-indigo-900">
       <nav class="container mx-auto px-6 md:px-12 py-4">
         <div class="flex justify-center items-center">
-          <div class="flex items-center">
+          <div class="flex items-center flex-wrap">
             <nuxt-link
               class="
                 text-lg
@@ -114,7 +114,8 @@ export default {
   created() {
     if (
       window.location.protocol !== "https:" &&
-      !window.location.href.includes("localhost")
+      !window.location.href.includes("localhost") &&
+      !window.location.href.includes("ipfs")
     )
       window.location.href = window.location.href.replace("http", "https");
   },

@@ -37,7 +37,7 @@ export default {
     '@nuxtjs/tailwindcss',
     '@nuxtjs/color-mode',
     '@nuxtjs/axios',
-    'nuxt-tv-toast',
+    ['nuxt-tailvue', {all: true}],
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -46,7 +46,7 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
-    'nuxt-tv-toast',
+    ['nuxt-tailvue', {all: true}],
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -68,9 +68,21 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    extend (config, { isDev, isClient }) {
+      if (!isDev) {
+        // relative links, please.
+        config.output.publicPath = './_nuxt/'
+      }
+      return config;
+    }
   },
   purgeCSS: {
     whitelist: ['dark-mode']
+  },
+  server: {
+    port: 3000, // par défaut : 3000
+    host: '0.0.0.0', // par défaut : localhost,
+    timing: false
   },
   colorMode: {
     preference: 'system', // default value of $colorMode.preference
