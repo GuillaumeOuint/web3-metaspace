@@ -24,8 +24,7 @@ export default {
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['plugins/persistedState.client.js'
-  ],
+  plugins: [],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -44,6 +43,7 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/tailwindcss',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     ['nuxt-tailvue', {all: true}],
@@ -67,15 +67,14 @@ export default {
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {
-    extend (config, { isDev, isClient }) {
-      if (!isDev) {
-        // relative links, please.
-        config.output.publicPath = './_nuxt/'
-      }
-      return config;
-    }
-  },
+  // build: {
+    // extend (config, { isDev, isClient }) {
+      // if (!isDev) {
+        // config.output.publicPath = './_nuxt/'
+      // }
+      // return config;
+    // }
+  // },
   purgeCSS: {
     whitelist: ['dark-mode']
   },

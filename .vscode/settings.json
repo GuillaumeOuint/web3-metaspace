@@ -1,4 +1,5 @@
 {
     "solidity.packageDefaultDependenciesContractsDirectory": "./contracts",
     "solidity.packageDefaultDependenciesDirectory": "../node_modules",
+    "nuxt.isNuxtApp": true,
 }
